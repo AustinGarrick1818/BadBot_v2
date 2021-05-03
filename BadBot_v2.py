@@ -53,6 +53,14 @@ async def logoff(ctx):
    await ctx.bot.logout()
 
 
+@bot.command(name='send_pm', help='Send user a private message')
+async def send_pm(ctx, user : discord.Member, *, msg):
+    if (len(msg) == 0):
+       await ctx.send('Message can\'t be empty!')
+    else:
+       # Can't send users a DM with stupid white spaces in their names
+       await user.send(msg)
+
 
 
 

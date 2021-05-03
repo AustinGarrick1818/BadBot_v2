@@ -40,10 +40,6 @@ async def on_message(message):
 
 
 
-@bot.command(name='demo', help='Test comand')
-async def demo(ctx):
-	#await ctx.message.delete()
-	await ctx.send('All is working!')
 
 
 @bot.command(name='logoff', help='Send bot offline')
@@ -51,16 +47,6 @@ async def logoff(ctx):
    #await ctx.message.delete()
    await ctx.send(f'Sending: {bot.user} offline...')
    await ctx.bot.logout()
-
-
-@bot.command(name='send_pm', help='Send user a private message')
-async def send_pm(ctx, user : discord.Member, *, msg):
-    if (len(msg) == 0):
-       await ctx.send('Message can\'t be empty!')
-    else:
-       # Can't send users a DM with stupid white spaces in their names
-       await user.send(msg)
-
 
 
 
